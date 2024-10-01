@@ -93,7 +93,9 @@ p {
 
 html,
 body {
+  overflow-x: hidden;
   min-height: 100%;
+  min-width: 100%;
 }
 
 body {
@@ -101,7 +103,7 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
-  width: 100%;
+  min-width: 100vw;
   overflow-x: hidden;
 }
 
@@ -130,39 +132,39 @@ header {
 }
 
 .headerContent {
-  position: relative;
-  align-items: flex-start;
-  margin: 3rem 5rem;
+  z-index: 1;
   display: flex;
-
   align-self: center;
-  transform: translateY(-275px);
+
+  margin-top: -25rem;
 }
 
 .aboutPerson {
-  background-color: white;
-  box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  height: 400px;
-  width: 600px;
-  padding: 4rem 2.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .imgFloat {
-  float: left;
   max-width: 300px;
   height: auto;
-
-  transform: translate(-100px, -250px);
-  margin-bottom: -250px;
-  margin-right: -80px;
-
   box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+}
+
+.headerTextContent {
+  max-height: 500px;
+  max-width: 600px;
+  padding: 3rem 2rem 3rem 2rem;
+  box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  background-color: white;
 }
 
 .aboutPerson h1 {
   font-size: xx-large;
+  margin-bottom: 1rem;
 }
 
 main h2 {
@@ -245,7 +247,7 @@ footer p {
 }
 
 .footerPersonImage {
-  height: 500px;
+  max-height: 500px;
   width: auto;
 }
 
@@ -261,25 +263,35 @@ footer p {
   }
 
   .aboutPerson {
-    background-color: white;
-    box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+    display: block;
+
+    /* background-color: white;
+    box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2); */
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    height: 400px;
-    width: 600px;
+    max-height: 400px;
+    max-width: 600px;
     padding: 4rem 2.5rem;
   }
 
   .imgFloat {
     float: left;
-    max-width: 300px;
+    max-width: 250px;
     height: auto;
 
-    transform: translate(-100px, -250px);
-    margin-bottom: -250px;
-    margin-right: -80px;
+    transform: translate(-100px, -150px);
+    margin-bottom: -150px;
+    margin-right: -90px;
 
     box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .headerContent {
+    margin-top: -2rem;
+  }
+
+  main {
+    margin-top: -17rem;
   }
 
   .projects {
@@ -292,5 +304,38 @@ footer p {
   .projects {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
+  }
+
+  .headerContent {
+    display: flex;
+    margin: 1rem 2rem;
+  }
+
+  .aboutPerson {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    height: auto;
+    text-align: center;
+
+    margin-bottom: 100%;
+    /* transform: translateY(250px); */
+    transform: none;
+  }
+
+  .imgFloat {
+    transform: translateY(-50px);
+    margin-right: -50px;
+  }
+
+  .headerTextContent {
+    max-width: 600px;
+    box-shadow: none;
+    transform: translateY(250px);
+    margin-left: 50px;
+    padding: 0;
   }
 }
