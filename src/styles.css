@@ -91,30 +91,78 @@ p {
   font-family: var(--primary-font);
 }
 
+html,
+body {
+  min-height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
 
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 header,
 footer {
   background-color: #0891b2;
-  flex: 1;
+  flex-shrink: 0;
+  min-height: 22vh;
 }
 
 main {
   background-color: white;
-  flex: 2.5;
+  flex-grow: 1;
 
-  margin: 2.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 5rem 5rem;
+  padding: 3rem 0rem;
 }
 
 header {
   transform: skewY(-5deg);
   transform-origin: bottom left;
+}
+
+.headerContent {
+  position: relative;
+  align-items: flex-start;
+  margin: 3rem 5rem;
+  display: flex;
+
+  align-self: center;
+  transform: translateY(-275px);
+}
+
+.aboutPerson {
+  background-color: white;
+  box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 400px;
+  width: 600px;
+  padding: 4rem 2.5rem;
+}
+
+.imgFloat {
+  float: left;
+  max-width: 300px;
+  height: auto;
+
+  transform: translate(-100px, -250px);
+  margin-bottom: -250px;
+  margin-right: -80px;
+
+  box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+}
+
+.aboutPerson h1 {
+  font-size: xx-large;
 }
 
 main h2 {
@@ -164,4 +212,85 @@ main h2 {
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3rem 5rem;
+}
+
+footer h1,
+footer p {
+  color: white;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  padding-bottom: 3rem;
+}
+
+.contactIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.contactIcons img {
+  height: 30px;
+  width: 30px;
+}
+
+.footerPersonImage {
+  height: 500px;
+  width: auto;
+}
+
+@media (max-width: 1000px) {
+  .headerContent {
+    position: relative;
+    align-items: flex-start;
+    margin: 3rem 5rem;
+    display: flex;
+
+    align-self: center;
+    transform: translateY(-275px);
+  }
+
+  .aboutPerson {
+    background-color: white;
+    box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 400px;
+    width: 600px;
+    padding: 4rem 2.5rem;
+  }
+
+  .imgFloat {
+    float: left;
+    max-width: 300px;
+    height: auto;
+
+    transform: translate(-100px, -250px);
+    margin-bottom: -250px;
+    margin-right: -80px;
+
+    box-shadow: 5px 5px 9px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .projects {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
 }
